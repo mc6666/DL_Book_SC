@@ -25,7 +25,7 @@ if uploaded_file is not None:
     X1 = np.abs(1-X1)
 
     # 预测
-    predictions = model.predict_classes(X1)[0]
+    predictions = np.argmax(model.predict(X1), axis=-1)[0]
     # 显示预测结果
     st.write(f'预测结果:{predictions}')
     # 显示上传图档
