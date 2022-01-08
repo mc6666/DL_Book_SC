@@ -36,7 +36,7 @@ def api_predict_from_dataurl():
     # reshape for input layer
     data = value_invert(img/255).reshape((1,28,28,1))
 
-    predictions = model.predict_classes(data)[0]
+    predictions = np.argmax(model.predict(data), axis=-1)[0]
 
     print("Prediction requested! Returned " + str(predictions))
 
